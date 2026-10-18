@@ -35,7 +35,6 @@ The Interest-Based Location Recommendation System analyzes user check-in history
 - **Data analysis:** user behavior analysis, aggregation, similarity analysis
 - **Machine learning:** K-Nearest Neighbors, TF-IDF, cosine similarity, collaborative filtering
 - **Optimization:** mathematical optimization, geospatial distance computation
-- **Communication:** turning analytical results into clear, actionable recommendations
   
 ## Tech Stack
 
