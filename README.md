@@ -1,29 +1,48 @@
-# AI-Driven Location Recommendation System
+# Interest-Based Location Recommendation System
+
+A Python recommendation system that suggests venues based on user check-in history and semantic venue categories. Built on the Foursquare NYC check-in dataset as the final project of the *Data Science with Python* course.
 
 ## Overview
-This repository contains an end-to-end Python-based recommendation engine that generates personalized venue suggestions based on user check-in history and semantic location data. Built using the FourSquare dataset, this system translates raw user behavior into actionable insights by combining collaborative filtering, natural language processing (TF-IDF), and geospatial optimization. 
 
-The project demonstrates a scalable approach to solving complex business constraints, specifically focusing on data pipeline engineering, high-dimensional data analysis, and mathematical optimization for group logistics.
+The Interest-Based Location Recommendation System analyzes user check-in history and venue categories to identify similar users, suggest relevant new venues and recommend a convenient meeting location for groups. It combines collaborative filtering, semantic category analysis and geospatial optimization, using machine learning techniques such as K-Nearest Neighbors (KNN), TF-IDF and cosine similarity. The system was developed and demonstrated on the Foursquare NYC check-in dataset.
 
-## Core Business Use Cases
-1. **Personalized Venue Recommendations (AI/NLP):** Recommends 10 novel, unvisited locations for a user based on their historical preferences and semantic category matching using TF-IDF and collaborative filtering.
-2. **User Similarity Clustering (Machine Learning):** Identifies the top 10 most similar users within the dataset by computing high-dimensional vector distances using K-Nearest Neighbors (KNN) and cosine similarity.
-3. **Geospatial Group Optimization (Analytics):** Determines the optimal central meeting point for a group of 5 users. The algorithm calculates the geographic centroid of the users' most frequented locations and minimizes the collective travel distance to suggest the most efficient, fair meeting venue.
+## Use Cases
 
-## Data Architecture & ETL Pipeline
-To ensure efficient model performance on high-dimensional data, a robust ETL pipeline was developed:
-* **Extraction:** Ingested raw FourSquare check-in datasets and location metadata.
-* **Transformation:** 
-  * Cleansed duplicate entries and standardized inconsistent venue category labels.
-  * Engineered hierarchical category paths for semantic clarity.
-  * Constructed user-location matrices and converted them into memory-efficient Compressed Sparse Row (CSR) formats to accelerate similarity computations.
-* **Load:** Outputted a validated, structured dataset optimized for scalable machine learning queries.
-* 
+1. **Personalized recommendations (ML, text vectorization):** Suggests 10 new venues per user and category using TF-IDF category similarity and collaborative filtering, excluding venues already visited. *Value: relevant, novel suggestions instead of repeats.*
+2. **User similarity (ML, data analysis):** Finds the 10 most similar users with KNN and cosine distance on sparse visit data. *Value: behavior-based user matching that supports peer-driven recommendations.*
+3. **Group meeting point (data analysis, optimization):** Derives each user's location from check-in history and minimizes total travel distance for 5 users. *Value: a concrete, decision-ready venue recommendation.*
+
+## Key Highlights
+
+- **End-to-end workflow:** from raw data to ready-to-use recommendations in one Python project.
+- **Data quality:** duplicate entries and inconsistent category labels were cleaned and standardized, so recommendations rest on reliable input.
+- **Efficient on sparse data:** user-venue matrices stored in CSR format reduce memory use and speed up similarity computation.
+- **Semantic understanding:** a hierarchical category structure lets the system recommend by venue type, not just by exact venue.
+- **Personalization with novelty:** previously visited venues are filtered out, so every suggestion is new to the user.
+- **Interpretable results:** outputs are simple ranked tables and a map visualization that non-technical users can read.
+
+## Data Pipeline (ETL)
+
+| Step | What was done |
+|---|---|
+| **Extract** | Ingested the raw Foursquare NYC check-ins and the cleaned category metadata. Checked column structure, data types and missing values. |
+| **Transform** | Removed duplicate entries, standardized inconsistent venue category labels, added descriptive category names and hierarchical category paths, and merged them with the check-ins. |
+| **Load** | Loaded the cleaned dataset into Pandas DataFrames and built user-venue matrices in Compressed Sparse Row (CSR) format for memory-efficient similarity computation. |
+
+## Skills Demonstrated
+
+- **Data engineering:** ETL, data cleaning, data validation, feature engineering
+- **Data analysis:** user behavior analysis, aggregation, similarity analysis
+- **Machine learning:** K-Nearest Neighbors, TF-IDF, cosine similarity, collaborative filtering
+- **Optimization:** mathematical optimization, geospatial distance computation
+- **Communication:** turning analytical results into clear, actionable recommendations
+  
 ## Tech Stack
+
 | Category | Tools |
 |---|---|
 | Language | Python |
 | Data processing | Pandas, NumPy, SciPy (sparse CSR) |
 | Machine learning | scikit-learn (KNN, TF-IDF, cosine similarity) |
-| Geospatial & optimization | GeoPy, SciPy (optimize) |
+| Geospatial and optimization | GeoPy, SciPy (optimize) |
 | Visualization | Matplotlib |
