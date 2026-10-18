@@ -6,6 +6,47 @@ A Python recommendation system that suggests venues based on user check-in histo
 
 The Interest-Based Location Recommendation System analyzes user check-in history and venue categories to identify similar users, suggest relevant new venues and recommend a convenient meeting location for groups. It combines collaborative filtering, semantic category analysis and geospatial optimization, using machine learning techniques such as K-Nearest Neighbors (KNN), TF-IDF and cosine similarity. The system was developed and demonstrated on the Foursquare NYC check-in dataset.
 
+## Getting Started
+
+### Prerequisites
+
+- Python 3.9 or higher
+- pip (Python package manager)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Mihir2703/Interest-Based-Location-Recommender.git
+   cd Interest-Based-Location-Recommender
+   ```
+
+2. **Create a virtual environment**
+   ```bash
+   python -m venv env
+   ```
+
+3. **Activate the virtual environment**
+
+   - macOS / Linux:
+     ```bash
+     source env/bin/activate
+     ```
+   - Windows:
+     ```bash
+     env\Scripts\activate
+     ```
+
+4. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Run the notebook**
+   ```bash
+   jupyter notebook src/INTEREST_BASED_LOCATION_RECOMMENDATION_SYSTEM.ipynb
+   ```
+
 ## Use Cases
 
 1. **Personalized recommendations (ML, text vectorization):** Suggests 10 new venues per user and category using TF-IDF category similarity and collaborative filtering, excluding venues already visited. *Value: relevant, novel suggestions instead of repeats.*
